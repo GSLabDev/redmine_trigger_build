@@ -24,7 +24,9 @@ module TriggerBuildProjectPatch
   def self.included(base)
     base.class_eval do
       unloadable
-      has_many :builds
+      
+      has_many :build_types
+      has_many :builds, :through => :build_types
     end
   end
 end
